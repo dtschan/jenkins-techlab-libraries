@@ -1,6 +1,10 @@
-def call() {
+def call(String channel) {
     String result = currentBuild.result?.toLower() ?: 'success'
     node {
-        rocketSend avatar: "https://chat.puzzle.ch/emoji-custom/${result}.png", message: "Build ${result} - ${env.JOB_NAME} ${env.BUILD_NUMBER} (<${env.BUILD_URL}|Open>)", rawMessage: true
-    }       
+        rocketSend(
+            channel: channel,
+            avatar: "https://chat.puzzle.ch/emoji-custom/${result}.png",
+            message: "Build success - ${env.JOB_NAME} ${env.BUILD_NUMBER} (<${env.BUILD_URL}|Open>)",
+            rawMessage: true)
+    }
 }
