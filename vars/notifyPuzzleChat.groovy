@@ -1,6 +1,10 @@
 def call(String channel = null) {
     echo currentBuild.result
-    String result = currentBuild.result?.toLower() ?: 'success'
+    try {
+        String result = currentBuild.result?.toLower() ?: 'success'
+    } catch(Exception e) {
+        echo e.toString()
+    }
     echo result
     node {
         rocketSend(
