@@ -1,4 +1,4 @@
-def call(String channel) {
+def call(currentBuild, String channel) {
     String result = currentBuild.result?.toLower() ?: 'success'
     node {
         rocketSend(
