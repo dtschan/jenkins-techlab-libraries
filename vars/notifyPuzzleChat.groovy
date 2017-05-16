@@ -1,7 +1,7 @@
 def call(String channel = null) {
     echo currentBuild.result
     try {
-        String result = currentBuild.result?.toLower() ?: 'success'
+        String result = currentBuild.result?.toLowerCase() ?: 'success'
     } catch(Exception e) {
         echo e.toString()
     }
