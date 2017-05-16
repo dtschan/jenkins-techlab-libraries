@@ -1,4 +1,5 @@
 def call(currentBuild, String channel) {
+    echo currentBuild.result
     String result = currentBuild.result?.toLower() ?: 'success'
     node {
         rocketSend(
