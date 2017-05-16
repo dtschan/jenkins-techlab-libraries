@@ -1,4 +1,4 @@
-def call(currentBuild, String channel) {
+def call(String channel = null) {
     echo currentBuild.result
     String result = currentBuild.result?.toLower() ?: 'success'
     node {
